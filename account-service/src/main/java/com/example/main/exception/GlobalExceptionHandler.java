@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.BAD_REQUEST.value(),
-                                                       HttpStatus.BAD_REQUEST.getReasonPhrase(),
+                                                       "CUSTOMER_ALREADY_EXISTS",
                                                        ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.NOT_FOUND.value(),
-                                                       HttpStatus.NOT_FOUND.getReasonPhrase(),
+                                                       "NOT_FOUND",
                                                        ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
@@ -32,7 +32,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                                                       HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
+                                                       HttpStatus.INTERNAL_SERVER_ERROR.toString(),
                                                        ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }

@@ -7,6 +7,7 @@ import com.example.main.dto.external.CustomerDTO;
 import com.example.main.dto.response.CustomerAccountDTO;
 import com.example.main.service.account.IAccountService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,18 @@ public class AccountController {
         RestResponse<CustomerAccountDTO> response = RestResponse.success("Get account details successfully",
                                                                          customerAccountDTO);
         return ResponseEntity.ok(response);
+    }
+
+    @PutMapping
+    public ResponseEntity<RestResponse<String>> updateAccount(@RequestBody CustomerAccountDTO customerAccountDTO) {
+        boolean isUpdated = accountService.updateAccount(customerAccountDTO);
+        if (isUpdated) {
+            return ResponseEntity.ok(RestResponse.success(AccountConstants.MESSAGE_ACCOUNT_UPDATE_SUCCESS, null));
+        } else {
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+                    .body(RestResponse.error(AccountConstants.STATUS_EXPECTATION_FAILED,
+                                             AccountConstants.MESSAGE_UPDATE_FAILED));
+        }
     }
 
 

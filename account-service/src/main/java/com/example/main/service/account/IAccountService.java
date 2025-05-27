@@ -12,6 +12,13 @@ public interface IAccountService {
      */
     void createAccount(CustomerDTO customer);
 
+    /**
+     * Get an account detail based on the provided mobile number.
+     *
+     * @param mobileNumber
+     */
     CustomerAccountDTO getAccountDetailsByMobileNumber(String mobileNumber);
+
+    boolean updateAccount(CustomerAccountDTO customerAccountDTO);
 
 }

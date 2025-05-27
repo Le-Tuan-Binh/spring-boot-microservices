@@ -14,7 +14,7 @@ public final class AccountConstants {
 
     public static final String MESSAGE_ACCOUNT_CREATED_SUCCESS = "Account created successfully";
 
-    public static final String MESSAGE_REQUEST_PROCESSED_SUCCESSFULLY = "Request processed successfully";
+    public static final String MESSAGE_ACCOUNT_UPDATE_SUCCESS = "Account updated successfully";
 
     public static final String MESSAGE_UPDATE_FAILED = "Update operation failed. Please try again or contact team";
 
