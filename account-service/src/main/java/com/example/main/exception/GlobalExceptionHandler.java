@@ -19,6 +19,15 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
+                                                       HttpStatus.NOT_FOUND.value(),
+                                                       HttpStatus.NOT_FOUND.getReasonPhrase(),
+                                                       ex.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),

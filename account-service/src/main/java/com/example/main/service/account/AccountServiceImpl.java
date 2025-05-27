@@ -1,10 +1,13 @@
 package com.example.main.service.account;
 
 import com.example.main.constants.AccountConstants;
+import com.example.main.dto.external.AccountDTO;
 import com.example.main.dto.external.CustomerDTO;
+import com.example.main.dto.response.CustomerAccountDTO;
 import com.example.main.entity.Account;
 import com.example.main.entity.Customer;
 import com.example.main.exception.CustomerAlreadyExistsException;
+import com.example.main.exception.ResourceNotFoundException;
 import com.example.main.mapper.AccountMapper;
 import com.example.main.mapper.CustomerMapper;
 import com.example.main.repository.AccountRepository;
@@ -50,6 +53,24 @@ public class AccountServiceImpl implements IAccountService {
         accountRepository.save(account);
     }
 
+    @Override
+    public CustomerAccountDTO getAccountDetailsByMobileNumber(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer", "mobile number", mobileNumber));
+
+        Account account = accountRepository.findByCustomerID(customer.getCustomerID())
+                .orElseThrow(() -> new ResourceNotFoundException("Account", "customer", customer.getCustomerID()));
+
+        System.out.println(account);
+        CustomerDTO customerDTO = customerMapper.toDto(customer);
+        AccountDTO accountDTO = accountMapper.toDto(account);
+        System.out.println("Account: " + account);
+        System.out.println("AccountDTO: " + accountDTO);
+
+        return new CustomerAccountDTO(customerDTO, accountDTO);
+    }
+
+
     private Account createNewAccount(Customer customer) {
         Account account = new Account();
         account.setCustomerID(customer.getCustomerID());
@@ -75,5 +96,6 @@ public class AccountServiceImpl implements IAccountService {
         long max = 9_999_999_999L;
         return min + (long) (random.nextDouble() * (max - min));
     }
+
 
 }

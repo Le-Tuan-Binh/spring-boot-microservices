@@ -1,6 +1,7 @@
 package com.example.main.service.account;
 
 import com.example.main.dto.external.CustomerDTO;
+import com.example.main.dto.response.CustomerAccountDTO;
 
 public interface IAccountService {
 
@@ -10,5 +11,7 @@ public interface IAccountService {
      * @param customer
      */
     void createAccount(CustomerDTO customer);
+
+    CustomerAccountDTO getAccountDetailsByMobileNumber(String mobileNumber);
 
 }

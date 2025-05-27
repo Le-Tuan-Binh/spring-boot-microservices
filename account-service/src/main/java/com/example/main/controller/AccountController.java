@@ -4,13 +4,11 @@ import com.example.main.constants.AccountConstants;
 import com.example.main.dto.common.RestResponse;
 import com.example.main.dto.external.AccountDTO;
 import com.example.main.dto.external.CustomerDTO;
+import com.example.main.dto.response.CustomerAccountDTO;
 import com.example.main.service.account.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api/v1/accounts", produces = "application/json")
@@ -29,6 +27,15 @@ public class AccountController {
 
         return ResponseEntity.status(AccountConstants.STATUS_CREATED).body(response);
     }
+
+    @GetMapping
+    public ResponseEntity<RestResponse<CustomerAccountDTO>> getAccountDetailsByMobileNumber(@RequestParam String mobileNumber) {
+        CustomerAccountDTO customerAccountDTO = accountService.getAccountDetailsByMobileNumber(mobileNumber);
+        RestResponse<CustomerAccountDTO> response = RestResponse.success("Get account details successfully",
+                                                                         customerAccountDTO);
+        return ResponseEntity.ok(response);
+    }
+
 
 }
 

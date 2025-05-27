@@ -7,7 +7,7 @@ import lombok.Data;
 public class AccountDTO {
 
     @JsonProperty("account_number")
-    private long accountNumber;
+    private Long accountNumber;
 
     @JsonProperty("account_type")
     private String accountType;
