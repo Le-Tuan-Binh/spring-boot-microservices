@@ -38,7 +38,7 @@ public class AccountController {
     }
 
     @PutMapping
-    public ResponseEntity<RestResponse<String>> updateAccount(@RequestBody CustomerAccountDTO customerAccountDTO) {
+    public ResponseEntity<?> updateAccount(@RequestBody CustomerAccountDTO customerAccountDTO) {
         boolean isUpdated = accountService.updateAccount(customerAccountDTO);
         if (isUpdated) {
             return ResponseEntity.ok(RestResponse.success(AccountConstants.MESSAGE_ACCOUNT_UPDATE_SUCCESS, null));
@@ -46,6 +46,17 @@ public class AccountController {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(RestResponse.error(AccountConstants.STATUS_EXPECTATION_FAILED,
                                              AccountConstants.MESSAGE_UPDATE_FAILED));
+        }
+    }
+
+    @DeleteMapping
+    public ResponseEntity<?> deleteAccount(@RequestParam String mobileNumber) {
+        boolean isDeleted = accountService.deleteAccount(mobileNumber);
+        if (isDeleted) {
+            return ResponseEntity.ok(RestResponse.success("Account deleted successfully", null));
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(RestResponse.error(500, "Delete failed"));
         }
     }
 
