@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,8 +21,15 @@ public class ErrorResponse {
 
     private LocalDateTime timestamp;
 
-    public static ErrorResponse of(String path, int statusCode, String error, String message) {
-        return new ErrorResponse(path, statusCode, error, message, LocalDateTime.now());
+    private List<ValidationError> errors;
+
+    public static ErrorResponse of(String path, int statusCode, String error, String message, List<ValidationError> errors) {
+        return new ErrorResponse(path, statusCode, error, message, LocalDateTime.now(), errors);
     }
+
+    public static ErrorResponse of(String path, int statusCode, String error, String message) {
+        return new ErrorResponse(path, statusCode, error, message, LocalDateTime.now(), null);
+    }
+
 
 }
