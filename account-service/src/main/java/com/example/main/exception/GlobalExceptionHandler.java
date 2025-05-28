@@ -29,10 +29,10 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleGenericException(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorResponse> handleGlobalException(Exception ex, WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                                                       HttpStatus.INTERNAL_SERVER_ERROR.toString(),
+                                                       "INTERNAL_SERVER_ERROR",
                                                        ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }

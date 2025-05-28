@@ -6,14 +6,12 @@ import com.example.main.dto.external.AccountDTO;
 import com.example.main.dto.external.CustomerDTO;
 import com.example.main.dto.response.CustomerAccountDTO;
 import com.example.main.service.account.IAccountService;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api/v1/accounts", produces = "application/json")
-@AllArgsConstructor
 public class AccountController {
 
     private IAccountService accountService;
