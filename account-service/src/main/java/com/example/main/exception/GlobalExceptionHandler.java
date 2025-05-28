@@ -19,8 +19,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(CustomerAlreadyExistsException.class)
     public ResponseEntity<ErrorResponse> handleCustomerAlreadyExistsException(CustomerAlreadyExistsException ex, WebRequest request) {
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false)
-                                                               .replace("uri=", ""),
+        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.BAD_REQUEST.value(),
                                                        "CUSTOMER_ALREADY_EXISTS",
                                                        ex.getMessage());
@@ -29,8 +28,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false)
-                                                               .replace("uri=", ""),
+        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.NOT_FOUND.value(),
                                                        "NOT_FOUND",
                                                        ex.getMessage());
@@ -42,8 +40,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         String fullMessage = ex.getMessage();
         String message = extractSimpleMessage(fullMessage);
 
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false)
-                                                               .replace("uri=", ""),
+        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
                                                        "INTERNAL_SERVER_ERROR",
                                                        message,
@@ -65,16 +62,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         System.out.println(ex);
         List<ValidationError> validationErrors = ex.getBindingResult()
-                .getFieldErrors()
-                .stream()
-                .map(error -> new ValidationError(toSnakeCase(error.getField()),
-                                                  error.getDefaultMessage()))
-                .collect(Collectors.toList());
+                                                   .getFieldErrors()
+                                                   .stream()
+                                                   .map(error -> new ValidationError(toSnakeCase(error.getField()),
+                                                                                     error.getDefaultMessage()))
+                                                   .collect(Collectors.toList());
 
         String combinedMessage = "Validation failed";
 
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false)
-                                                               .replace("uri=", ""),
+        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
                                                        HttpStatus.BAD_REQUEST.value(),
                                                        "VALIDATION_FAILED",
                                                        combinedMessage,

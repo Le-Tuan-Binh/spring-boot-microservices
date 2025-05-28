@@ -14,7 +14,6 @@ import com.example.main.repository.AccountRepository;
 import com.example.main.repository.CustomerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
@@ -46,8 +45,6 @@ public class AccountServiceImpl implements IAccountService {
         if (customerOptional.isPresent()) {
             throw new CustomerAlreadyExistsException("Customer with this email already exists.");
         }
-        customer.setCreatedAt(LocalDateTime.now());
-        customer.setCreatedBy("Le Tuan Binh");
         Customer savedCustomer = customerRepository.save(customer);
         Account account = createNewAccount(savedCustomer);
         accountRepository.save(account);
@@ -56,10 +53,14 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public CustomerAccountDTO getAccountDetailsByMobileNumber(String mobileNumber) {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer", "mobile number", mobileNumber));
+                                              .orElseThrow(() -> new ResourceNotFoundException("Customer",
+                                                                                               "mobile number",
+                                                                                               mobileNumber));
 
         Account account = accountRepository.findByCustomerID(customer.getCustomerID())
-                .orElseThrow(() -> new ResourceNotFoundException("Account", "customer", customer.getCustomerID()));
+                                           .orElseThrow(() -> new ResourceNotFoundException("Account",
+                                                                                            "customer",
+                                                                                            customer.getCustomerID()));
 
         System.out.println(account);
         CustomerDTO customerDTO = customerMapper.toDto(customer);
@@ -76,15 +77,18 @@ public class AccountServiceImpl implements IAccountService {
         CustomerDTO customerDTO = customerAccountDTO.getCustomer();
 
         Account account = accountRepository.findById(accountDTO.getAccountNumber())
-                .orElseThrow(() -> new ResourceNotFoundException("Account",
-                                                                 "account number",
-                                                                 accountDTO.getAccountNumber().toString()));
+                                           .orElseThrow(() -> new ResourceNotFoundException("Account",
+                                                                                            "account number",
+                                                                                            accountDTO.getAccountNumber()
+                                                                                                      .toString()));
         accountMapper.updateEntityFromDto(accountDTO, account);
         accountRepository.save(account);
 
         Long customerID = account.getCustomerID();
         Customer customer = customerRepository.findById(customerID)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer", "customer", customerID.toString()));
+                                              .orElseThrow(() -> new ResourceNotFoundException("Customer",
+                                                                                               "customer",
+                                                                                               customerID.toString()));
         customerMapper.updateEntityFromDto(customerDTO, customer);
         customerRepository.save(customer);
 
@@ -94,7 +98,9 @@ public class AccountServiceImpl implements IAccountService {
     @Override
     public boolean deleteAccount(String mobileNumber) {
         Customer customer = customerRepository.findByMobileNumber(mobileNumber)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer", "mobile number", mobileNumber));
+                                              .orElseThrow(() -> new ResourceNotFoundException("Customer",
+                                                                                               "mobile number",
+                                                                                               mobileNumber));
         accountRepository.deleteByCustomerID(customer.getCustomerID());
         customerRepository.deleteById(customer.getCustomerID());
         return true;
@@ -107,8 +113,6 @@ public class AccountServiceImpl implements IAccountService {
         account.setAccountNumber(generateUniqueAccountNumber());
         account.setAccountType(AccountConstants.ACCOUNT_TYPE_SAVINGS);
         account.setBranchAddress(AccountConstants.ACCOUNT_ADDRESS);
-        account.setCreatedAt(LocalDateTime.now());
-        account.setCreatedBy("Le Tuan Binh");
         return account;
 
     }
