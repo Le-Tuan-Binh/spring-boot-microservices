@@ -40,11 +40,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         String fullMessage = ex.getMessage();
         String message = extractSimpleMessage(fullMessage);
 
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
-                                                       HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                                                       "INTERNAL_SERVER_ERROR",
-                                                       message,
-                                                       null);
+        ErrorResponse errorResponse = ErrorResponse.ofValidation(request.getDescription(false).replace("uri=", ""),
+                                                                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                                                                 "INTERNAL_SERVER_ERROR",
+                                                                 message,
+                                                                 null);
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -61,20 +61,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         System.out.println(ex);
-        List<ValidationError> validationErrors = ex.getBindingResult()
-                                                   .getFieldErrors()
-                                                   .stream()
-                                                   .map(error -> new ValidationError(toSnakeCase(error.getField()),
-                                                                                     error.getDefaultMessage()))
-                                                   .collect(Collectors.toList());
+        List<ValidationError> validationErrors = ex.getBindingResult().getFieldErrors().stream().map(error -> new ValidationError(
+                toSnakeCase(error.getField()),
+                error.getDefaultMessage())).collect(Collectors.toList());
 
         String combinedMessage = "Validation failed";
 
-        ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
-                                                       HttpStatus.BAD_REQUEST.value(),
-                                                       "VALIDATION_FAILED",
-                                                       combinedMessage,
-                                                       validationErrors);
+        ErrorResponse errorResponse = ErrorResponse.ofValidation(request.getDescription(false).replace("uri=", ""),
+                                                                 HttpStatus.BAD_REQUEST.value(),
+                                                                 "VALIDATION_FAILED",
+                                                                 combinedMessage,
+                                                                 validationErrors);
 
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
