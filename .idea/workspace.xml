@@ -5,21 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c90d036-1ea3-4df9-9004-319778fee23f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/spring-boot-microservices.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/RestResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/ValidationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spring-boot-microservice.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/AccountServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/RestResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/RestResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/AccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/AccountDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/CustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/CustomerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/account/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/card/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/account/IAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/card/IAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/external/LoanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/external/LoanDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +36,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2xmZ4eQGa04yDuUzjhajyK5TmJA" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -64,22 +61,26 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.CardServiceApplication.executor": "Run",
     "Spring Boot.LoanServiceApplication.executor": "Run",
     "code.cleanup.on.save": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/projects/java/web/spring/microservice/spring-boot-microservices/loan-service/src/main/java/com/example/main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/projects/java/web/spring/microservice/spring-boot-microservices/card-service/src/main/java/com/example/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "actions.on.save",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\java\web\spring\microservice\spring-boot-microservices\card-service\src\main\java\com\example\main" />
       <recent name="D:\projects\java\web\spring\microservice\spring-boot-microservices\loan-service\src\main\java\com\example\main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -90,15 +91,25 @@
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.LoanServiceApplication">
+  <component name="RunManager" selected="Spring Boot.CardServiceApplication">
     <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.main.AccountServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="card-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.main.CardServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,7 +140,8 @@
       <workItem from="1747996961072" duration="11000" />
       <workItem from="1748243184267" duration="97000" />
       <workItem from="1748243305295" duration="10000" />
-      <workItem from="1748545020750" duration="3072000" />
+      <workItem from="1748545020750" duration="6118000" />
+      <workItem from="1748587966299" duration="7633000" />
     </task>
     <servers />
   </component>

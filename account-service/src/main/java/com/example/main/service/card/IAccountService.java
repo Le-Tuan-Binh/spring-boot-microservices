@@ -1,4 +1,4 @@
-package com.example.main.service.account;
+package com.example.main.service.card;
 
 import com.example.main.dto.external.CustomerDTO;
 import com.example.main.dto.response.CustomerAccountDTO;

@@ -11,26 +11,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditAware")
-@OpenAPIDefinition(
-    info = @Info(
-        title = "NexBank Account Service API",
-        version = "1.0.0",
-        description = "NexBank Account System REST API Documentation.",
-        contact = @Contact(
-                name = "NexBank Support Team",
-                email = "support@nexbank.com",
-                url = "https://www.nexbank.com/support"
-        ),
-        license = @License(
-                name = "Apache 2.0",
-                url = "https://www.apache.org/licenses/LICENSE-2.0"
-        )
-    ),
-    externalDocs = @ExternalDocumentation(
-        description = "NexBank API Full Documentation",
-        url = "https://docs.nexbank.com/account-service"
-    )
-)
+@OpenAPIDefinition(info = @Info(title = "NexBank Account Service API", version = "1.0.0",
+                                description = "NexBank Account System REST API Documentation.",
+                                contact = @Contact(name = "NexBank Support Team", email = "support@nexbank.com",
+                                                   url = "https://www.nexbank.com/support"),
+                                license = @License(name = "Apache 2.0",
+                                                   url = "https://www.apache.org/licenses/LICENSE-2.0")),
+                   externalDocs = @ExternalDocumentation(description = "NexBank API Full Documentation",
+                                                         url = "https://docs.nexbank.com/account-service"))
 
 public class AccountServiceApplication {
 

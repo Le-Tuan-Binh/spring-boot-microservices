@@ -9,12 +9,11 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-@Schema(description = "Account information for customer")
+@Schema(name = "Account", description = "Account information for customer")
 public class AccountDTO {
 
-    @Schema(description = "Unique 10-digit account number",
-            example = "1234567890",
-            minimum = "1000000000",
+    @Schema(
+            description = "Unique 10-digit account number", example = "1234567890", minimum = "1000000000",
             maximum = "9999999999")
     @NotNull(message = "Account number must not be null")
     @JsonProperty("account_number")

@@ -1,26 +1,26 @@
 package com.example.main.dto.external;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.Data;
 
-import java.time.LocalDate;
-
 @Data
-@Schema(description = "Loan information for a customer")
+@Schema(name = "Loan", description = "Loan information for a customer")
 public class LoanDTO {
 
     @Schema(description = "Mobile number of the customer", example = "0987654321")
     @JsonProperty("mobile_number")
-    @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number must be 10 digits")
+    @Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile Number must be 10 digits")
     @NotEmpty(message = "Mobile number must not be empty")
     private String mobileNumber;
 
     @Schema(description = "Unique loan number", example = "LN123456789")
     @JsonProperty("loan_number")
-    @Pattern(regexp="(^$|[0-9]{12})",message = "Loan Number must be 12 digits")
+    @Pattern(regexp = "(^$|[0-9]{12})", message = "Loan Number must be 12 digits")
     @NotEmpty(message = "Loan number must not be empty")
     private String loanNumber;
 
