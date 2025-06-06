@@ -7,36 +7,8 @@
     <list default="true" id="1c90d036-1ea3-4df9-9004-319778fee23f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/AccountServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/RestResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/common/RestResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/AccountDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/dto/external/AccountDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/mapper/AccountMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/mapper/AccountMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/mapper/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/mapper/CustomerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/card/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/com/example/main/service/card/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/CardServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/CardServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/controller/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/controller/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/common/RestResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/common/RestResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/external/CardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/dto/external/CardDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/mapper/CardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/mapper/CardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/service/card/CardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/java/com/example/main/service/card/CardServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/card-service/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/LoanServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/LoanServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/constants/LoanConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/constants/LoanConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/controller/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/controller/LoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/RestResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/dto/common/RestResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/entity/Loan.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/entity/Loan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/mapper/LoanMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/mapper/LoanMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/service/loan/LoanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/example/main/service/loan/LoanServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/card-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loan-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +64,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "rearrange.code.on.save": "true",
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
@@ -172,7 +147,10 @@
       <workItem from="1749144277081" duration="33000" />
       <workItem from="1749144366130" duration="15000" />
       <workItem from="1749145498123" duration="2000" />
-      <workItem from="1749188915813" duration="297000" />
+      <workItem from="1749188915813" duration="330000" />
+      <workItem from="1749196362902" duration="28000" />
+      <workItem from="1749239749070" duration="47000" />
+      <workItem from="1749239798720" duration="2107000" />
     </task>
     <servers />
   </component>
