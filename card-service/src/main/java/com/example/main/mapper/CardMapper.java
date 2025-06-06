@@ -12,7 +12,10 @@ public interface CardMapper {
 
     Card toEntity(CardDTO accountDTO);
 
-    void updateEntityFromDto(CardDTO dto, @MappingTarget Card entity);
+    void updateEntityFromDto(
+        CardDTO dto,
+        @MappingTarget
+        Card entity);
 
 
 }

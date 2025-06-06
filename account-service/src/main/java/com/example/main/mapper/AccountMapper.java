@@ -12,7 +12,10 @@ public interface AccountMapper {
 
     Account toEntity(AccountDTO accountDTO);
 
-    void updateEntityFromDto(AccountDTO dto, @MappingTarget Account entity);
+    void updateEntityFromDto(
+        AccountDTO dto,
+        @MappingTarget
+        Account entity);
 
 
 }

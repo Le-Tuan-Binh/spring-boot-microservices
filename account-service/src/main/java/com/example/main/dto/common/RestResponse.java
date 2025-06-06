@@ -13,13 +13,17 @@ import lombok.NoArgsConstructor;
 @Schema(description = "Generic wrapper for API responses")
 public class RestResponse<T> {
 
-    @Schema(description = "Indicates if the request was successful") private boolean success;
+    @Schema(description = "Indicates if the request was successful")
+    private boolean success;
 
-    @Schema(description = "HTTP status code of the response") private Integer code;
+    @Schema(description = "HTTP status code of the response")
+    private Integer code;
 
-    @Schema(description = "Detailed message about the response") private String message;
+    @Schema(description = "Detailed message about the response")
+    private String message;
 
-    @Schema(description = "Response payload data") private T data;
+    @Schema(description = "Response payload data")
+    private T data;
 
     public static <T> RestResponse<T> success(int code, String message, T data) {
         return new RestResponse<>(true, code, message, data);

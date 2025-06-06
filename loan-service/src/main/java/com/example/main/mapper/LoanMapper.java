@@ -12,6 +12,9 @@ public interface LoanMapper {
 
     Loan toEntity(LoanDTO loanDTO);
 
-    void updateEntityFromDto(LoanDTO dto, @MappingTarget Loan entity);
+    void updateEntityFromDto(
+        LoanDTO dto,
+        @MappingTarget
+        Loan entity);
 
 }

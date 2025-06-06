@@ -18,20 +18,20 @@ import java.util.stream.Collectors;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(LoanAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleLoanAlreadyExistsException(LoanAlreadyExistsException ex, WebRequest request) {
+    public ResponseEntity<ErrorResponse> handleLoanAlreadyExistsException(
+        LoanAlreadyExistsException ex,
+        WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
-                                                       HttpStatus.BAD_REQUEST.value(),
-                                                       "LOAN_ALREADY_EXISTS",
-                                                       ex.getMessage());
+            HttpStatus.BAD_REQUEST.value(), "LOAN_ALREADY_EXISTS", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+    public ResponseEntity<ErrorResponse> handleResourceNotFoundException(
+        ResourceNotFoundException ex,
+        WebRequest request) {
         ErrorResponse errorResponse = ErrorResponse.of(request.getDescription(false).replace("uri=", ""),
-                                                       HttpStatus.NOT_FOUND.value(),
-                                                       "NOT_FOUND",
-                                                       ex.getMessage());
+            HttpStatus.NOT_FOUND.value(), "NOT_FOUND", ex.getMessage());
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
@@ -41,10 +41,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         String message = extractSimpleMessage(fullMessage);
 
         ErrorResponse errorResponse = ErrorResponse.ofValidation(request.getDescription(false).replace("uri=", ""),
-                                                                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                                                                 "INTERNAL_SERVER_ERROR",
-                                                                 message,
-                                                                 null);
+            HttpStatus.INTERNAL_SERVER_ERROR.value(), "INTERNAL_SERVER_ERROR", message, null);
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -59,19 +56,22 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+        MethodArgumentNotValidException ex,
+        HttpHeaders headers,
+        HttpStatusCode status,
+        WebRequest request) {
         System.out.println(ex);
-        List<ValidationError> validationErrors = ex.getBindingResult().getFieldErrors().stream().map(error -> new ValidationError(
-                toSnakeCase(error.getField()),
-                error.getDefaultMessage())).collect(Collectors.toList());
+        List<ValidationError> validationErrors = ex.getBindingResult()
+            .getFieldErrors()
+            .stream()
+            .map(error -> new ValidationError(toSnakeCase(error.getField()), error.getDefaultMessage()))
+            .collect(Collectors.toList());
 
         String combinedMessage = "Validation failed";
 
         ErrorResponse errorResponse = ErrorResponse.ofValidation(request.getDescription(false).replace("uri=", ""),
-                                                                 HttpStatus.BAD_REQUEST.value(),
-                                                                 "VALIDATION_FAILED",
-                                                                 combinedMessage,
-                                                                 validationErrors);
+            HttpStatus.BAD_REQUEST.value(), "VALIDATION_FAILED", combinedMessage, validationErrors);
 
         return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
     }

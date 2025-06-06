@@ -13,8 +13,8 @@ import lombok.Data;
 public class AccountDTO {
 
     @Schema(
-            description = "Unique 10-digit account number", example = "1234567890", minimum = "1000000000",
-            maximum = "9999999999")
+        description = "Unique 10-digit account number", example = "1234567890", minimum = "1000000000",
+        maximum = "9999999999")
     @NotNull(message = "Account number must not be null")
     @JsonProperty("account_number")
     @Min(value = 1_000_000_000L, message = "Account number must have exactly 10 digits")

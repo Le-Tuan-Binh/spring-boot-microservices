@@ -37,7 +37,12 @@ public class ErrorResponse {
         return new ErrorResponse(path, statusCode, errorCode, message, LocalDateTime.now(), null);
     }
 
-    public static ErrorResponse ofValidation(String path, int statusCode, String errorCode, String message, List<ValidationError> errors) {
+    public static ErrorResponse ofValidation(
+        String path,
+        int statusCode,
+        String errorCode,
+        String message,
+        List<ValidationError> errors) {
         return new ErrorResponse(path, statusCode, "VALIDATION_ERROR", message, LocalDateTime.now(), errors);
     }
 

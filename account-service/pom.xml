@@ -17,6 +17,7 @@
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
         <java.version>24</java.version>
     </properties>
+    <packaging>jar</packaging>
     <dependencies>
         <dependency>
             <groupId>org.mapstruct</groupId>
@@ -99,5 +100,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

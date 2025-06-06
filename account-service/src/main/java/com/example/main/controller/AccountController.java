@@ -26,43 +26,53 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @Validated
 @Tag(
-        name = "CRUD REST APIs for Accounts in NexBank",
-        description = "CRUD REST APIs in NexBank to CREATE, UPDATE, FETCH AND DELETE account details")
+  name = "CRUD REST APIs for Accounts in NexBank",
+  description = "CRUD REST APIs in NexBank to CREATE, UPDATE, FETCH AND DELETE account details"
+)
 public class AccountController {
 
     private IAccountService accountService;
 
     @Operation(summary = "Create a new account")
     @ApiResponses(
-            value = {
-                    @ApiResponse(responseCode = "201", description = "Account created successfully"), @ApiResponse(
-                    responseCode = "500", description = "HTTP Status Internal Server Error",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
-            })
+      value = {
+        @ApiResponse(responseCode = "201", description = "Account created successfully"),
+        @ApiResponse(
+          responseCode = "500",
+          description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+        )
+      }
+    )
     @PostMapping
-    public ResponseEntity<RestResponse<AccountDTO>> createAccount(@Valid @RequestBody CustomerDTO customer) {
+    public ResponseEntity<RestResponse<AccountDTO>> createAccount(
+      @Valid @RequestBody CustomerDTO customer) {
 
         accountService.createAccount(customer);
 
         RestResponse<AccountDTO> response = RestResponse.success(AccountConstants.STATUS_CREATED,
                                                                  AccountConstants.MESSAGE_ACCOUNT_CREATED_SUCCESS,
                                                                  null);
-
+        
         return ResponseEntity.status(AccountConstants.STATUS_CREATED).body(response);
     }
 
     @Operation(summary = "Get account details by mobile number")
     @ApiResponses(
-            value = {
-                    @ApiResponse(responseCode = "200", description = "Account details retrieved"), @ApiResponse(
-                    responseCode = "500", description = "HTTP Status Internal Server Error",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
-            })
+      value = {
+        @ApiResponse(responseCode = "200", description = "Account details retrieved"),
+        @ApiResponse(
+          responseCode = "500",
+          description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+        )
+      }
+    )
     @GetMapping
     public ResponseEntity<RestResponse<CustomerAccountDTO>> getAccountDetailsByMobileNumber(
-            @Pattern(
-                    regexp = "^$|[0-9]{10}",
-                    message = "Mobile number must be empty or exactly 10 digits") @RequestParam String mobileNumber) {
+      @Pattern(
+        regexp = "^$|[0-9]{10}", message = "Mobile number must be empty or exactly 10 digits"
+      ) @RequestParam String mobileNumber) {
         CustomerAccountDTO customerAccountDTO = accountService.getAccountDetailsByMobileNumber(mobileNumber);
         RestResponse<CustomerAccountDTO> response = RestResponse.success(AccountConstants.STATUS_OK,
                                                                          "Get account details successfully",
@@ -72,50 +82,58 @@ public class AccountController {
 
     @Operation(summary = "Update an account")
     @ApiResponses(
-            value = {
-                    @ApiResponse(responseCode = "200", description = "Account updated successfully"), @ApiResponse(
-                    responseCode = "417", description = "Expectation Failed",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class))), @ApiResponse(
-                    responseCode = "500", description = "HTTP Status Internal Server Error",
-                    content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
-            })
+      value = {
+        @ApiResponse(responseCode = "200", description = "Account updated successfully"),
+        @ApiResponse(
+          responseCode = "417",
+          description = "Expectation Failed",
+          content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+        ),
+        @ApiResponse(
+          responseCode = "500",
+          description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+        )
+      }
+    )
     @PutMapping
-    public ResponseEntity<RestResponse> updateAccount(@Valid @RequestBody CustomerAccountDTO customerAccountDTO) {
+    public ResponseEntity<RestResponse> updateAccount(
+      @Valid @RequestBody CustomerAccountDTO customerAccountDTO) {
         boolean isUpdated = accountService.updateAccount(customerAccountDTO);
         if (isUpdated) {
-            return ResponseEntity.ok(
-                    RestResponse.success(AccountConstants.STATUS_OK, AccountConstants.MESSAGE_ACCOUNT_UPDATE_SUCCESS,
-                                         null));
-        } else {
-            return ResponseEntity
-                    .status(HttpStatus.EXPECTATION_FAILED)
-                    .body(RestResponse.error(AccountConstants.STATUS_EXPECTATION_FAILED,
-                                             AccountConstants.MESSAGE_UPDATE_FAILED));
+            return ResponseEntity.ok(RestResponse.success(AccountConstants.STATUS_OK,
+                                                          AccountConstants.MESSAGE_ACCOUNT_UPDATE_SUCCESS,
+                                                          null));
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(RestResponse.error(AccountConstants.STATUS_EXPECTATION_FAILED,
+                                                                                                AccountConstants.MESSAGE_UPDATE_FAILED));
         }
     }
 
     @Operation(summary = "Delete an account by mobile number")
     @ApiResponses(
-            value = {
-                    @ApiResponse(responseCode = "200", description = "Account deleted successfully"),
-                    @ApiResponse(responseCode = "417", description = "Expectation Failed"),
-                    @ApiResponse(
-                            responseCode = "500", description = "HTTP Status Internal Server Error",
-                            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
-            })
+      value = {
+        @ApiResponse(responseCode = "200", description = "Account deleted successfully"),
+        @ApiResponse(responseCode = "417", description = "Expectation Failed"),
+        @ApiResponse(
+          responseCode = "500",
+          description = "HTTP Status Internal Server Error",
+          content = @Content(schema = @Schema(implementation = ErrorResponse.class))
+        )
+      }
+    )
     @DeleteMapping
     public ResponseEntity<RestResponse> deleteAccount(
-            @Pattern(
-                    regexp = "^$|[0-9]{10}",
-                    message = "Mobile number must be empty or exactly 10 digits") @RequestParam String mobileNumber) {
+      @Pattern(
+        regexp = "^$|[0-9]{10}", message = "Mobile number must be empty or exactly 10 digits"
+      ) @RequestParam String mobileNumber) {
         boolean isDeleted = accountService.deleteAccount(mobileNumber);
         if (isDeleted) {
-            return ResponseEntity.ok(
-                    RestResponse.success(AccountConstants.STATUS_OK, "Account deleted successfully", null));
-        } else {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(RestResponse.error(500, "Delete failed"));
+            return ResponseEntity.ok(RestResponse.success(AccountConstants.STATUS_OK, "Account deleted successfully", null));
+        }
+        else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(RestResponse.error(500, "Delete failed"));
         }
     }
 
